@@ -1,0 +1,414 @@
+/* =========================================
+   1. FONTES E ESTRUTURA GERAL
+   ========================================= */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Ajuste VLibras para não sobrepor o menu */
+.vw-plugin-wrapper {
+    z-index: 9999;
+}
+
+/* Fundo Moderno para as Seções (Degradê Suave) */
+.section-gradient {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); 
+}
+
+/* Divisória Dourada entre Seções */
+.golden-divider {
+    border: 0;
+    height: 6px;
+    background: #ffc107;
+    opacity: 1;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   2. NAVBAR (MODERNA)
+   ========================================= */
+.navbar {
+    border-bottom: 3px solid #ffc107; /* Detalhe amarelo */
+}
+
+/* Links do Menu */
+.navbar-nav .nav-link {
+    color: #555;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #000;
+}
+
+/* Efeito de Sublinhado Animado */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 50%;
+    background-color: #ffc107;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+}
+
+/* Botão English (Destaque) */
+.hover-scale {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4) !important;
+}
+
+/* Menu Mobile */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* =========================================
+   3. BANNER / CARROSSEL MODERNO
+   ========================================= */
+#bannerCarousel {
+    position: relative;
+    overflow: hidden;
+    height: 85vh; 
+    max-height: 800px;
+    min-height: 500px;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+/* A Imagem base */
+.banner-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1); 
+}
+
+/* Efeito Ken Burns (Zoom Lento) */
+.ken-burns {
+    animation: kenBurns 20s infinite alternate linear;
+    transform-origin: center;
+}
+
+@keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+/* Overlay Gradiente */
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 1;
+}
+
+/* Glassmorphism (Efeito de Vidro no Texto) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    /*backdrop-filter: blur(12px);*/
+    /*-webkit-backdrop-filter: blur(12px);*/
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    max-width: 800px;
+    width: 90%;
+    z-index: 2;
+}
+
+/* Animação de entrada do texto */
+.animated-text {
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navegação (Setas Redondas) */
+.carousel-control-prev, .carousel-control-next {
+    width: 10%;
+    z-index: 10;
+}
+
+.nav-circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover .nav-circle,
+.carousel-control-next:hover .nav-circle {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    filter: invert(1); 
+}
+
+/* Tipografia extra para o banner */
+.ls-2 { letter-spacing: 2px; }
+
+/* Ajuste Mobile para o Banner */
+@media (max-width: 768px) {
+    .carousel-caption {
+        bottom: 0;
+        top: 0;
+    }
+    .glass-card {
+        width: 95%;
+        padding: 1.5rem !important;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+}
+
+/* =========================================
+   4. CARDS MODERNOS (Julho, Agosto...)
+   ========================================= */
+.card-modern {
+    background: #fff;
+    border: none;
+    border-radius: 1rem !important;
+    /* Sombra suave inicial */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important; 
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover: Card flutua e sombra aumenta */
+.card-modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Caixa do Ícone (Círculo) */
+.icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* Hover: Ícone gira levemente */
+.card-modern:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Tipografia Auxiliar */
+.small {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   5. FORMULÁRIO MODERNO E ATRAENTE
+   ========================================= */
+
+/* Inputs com visual moderno */
+.form-control-soft {
+    background-color: #f1f3f5;
+    border: 1px solid #e9ecef;
+    border-radius: 0.8rem;
+    padding: 1rem 0.75rem;
+    transition: all 0.3s ease;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Estado de Foco */
+.form-control-soft:focus {
+    background-color: #ffffff;
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 4px rgba(111, 66, 193, 0.15);
+    outline: none;
+}
+
+/* Ajuste para o Label Flutuante */
+.form-floating > label {
+    padding-left: 1rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+/* Quando focado, label fica roxo */
+.form-floating > .form-control:focus ~ label {
+    color: #6f42c1;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+/* Textarea altura mínima */
+textarea.form-control-soft {
+    min-height: 120px;
+}
+
+/* --- Radio Buttons (Tags Selecionáveis) --- */
+.btn-check:checked + .btn-tag {
+    background-color: #6f42c1;
+    color: #fff;
+    border-color: #6f42c1;
+    box-shadow: 0 4px 10px rgba(111, 66, 193, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-tag {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #555;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-tag:hover {
+    background-color: #f1f1f1;
+}
+
+/* --- Botão de Enviar Gradiente --- */
+.btn-gradient-primary {
+    background: linear-gradient(45deg, #6f42c1, #fd7e14);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 12px 30px;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(111, 66, 193, 0.4);
+    color: white;
+    background: linear-gradient(45deg, #5a32a3, #e36802);
+}
+
+/* =========================================
+   6. UTILITÁRIOS DE CORES (PALETA COMPLETA)
+   ========================================= */
+
+/* Botão Roxo para a ODS 10 */
+.btn-outline-purple {
+    color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.btn-outline-purple:hover {
+    background-color: #6f42c1;
+    color: white;
+    border-color: #6f42c1;
+}
+
+/* --- Roxo / Lilás --- */
+.bg-purple { background-color: #6f42c1 !important; }
+.text-purple { color: #6f42c1 !important; }
+.bg-purple-soft { background-color: rgba(111, 66, 193, 0.1); }
+.border-top-purple { border-top: 4px solid #6f42c1 !important; }
+
+/* --- Dourado --- */
+.bg-gold { background-color: #DAA520 !important; }
+.text-gold { color: #DAA520 !important; }
+.bg-gold-soft { background-color: rgba(218, 165, 32, 0.1); }
+.border-top-gold { border-top: 4px solid #DAA520 !important; }
+
+/* --- Laranja --- */
+.text-orange { color: #fd7e14 !important; }
+.bg-orange-soft { background-color: rgba(253, 126, 20, 0.1); }
+.border-top-orange { border-top: 4px solid #fd7e14 !important; }
+
+/* --- Verde --- */
+.bg-green-soft { background-color: rgba(144, 238, 144, 0.2); } /* Verde claro */
+.bg-success-soft { background-color: rgba(25, 135, 84, 0.1); } /* Verde escuro */
+.border-top-green { border-top: 4px solid #90EE90 !important; }
+.border-top-success { border-top: 4px solid #198754 !important; }
+.border-top-primary { border-top: 4px solid #0d6efd !important; }
+
+/* --- Amarelo --- */
+.bg-warning-soft { background-color: rgba(255, 193, 7, 0.1); }
+.border-top-warning { border-top: 4px solid #ffc107 !important; }
+
+/* --- Branco/Cinza --- */
+.bg-gray-soft { background-color: rgba(108, 117, 125, 0.1); }
+.border-top-gray { border-top: 4px solid #6c757d !important; }
+.text-gray-dark { color: #495057 !important; }
+
+/* --- Fúcsia/Roxo Escuro --- */
+.text-fuchsia { color: #800080 !important; }
+.bg-fuchsia-soft { background-color: rgba(128, 0, 128, 0.1); }
+.border-top-fuchsia { border-top: 4px solid #800080 !important; }
+
+/* --- Vermelho --- */
+.bg-danger-subtle { background-color: rgba(220, 53, 69, 0.1) !important; }
+.border-top-danger { border-top: 4px solid #dc3545 !important; }
+
+/* =========================================
+   7. FOOTER MODERNO
+   ========================================= */
+.footer-modern {
+    background-color: #e9ecef;
+    border-top: 5px solid #ffc107; 
+    color: #333;
+}
+
+.footer-modern a.hover-link {
+    transition: color 0.3s ease;
+}
+
+.footer-modern a.hover-link:hover {
+    color: #6f42c1 !important;
+}
+
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #6f42c1;
+}
+
+.social-icon:hover {
+    color: #DAA520 !important;
+    transform: scale(1.15);
+}
