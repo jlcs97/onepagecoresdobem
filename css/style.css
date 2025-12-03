@@ -1,9 +1,25 @@
 /* =========================================
+   0. VARIÁVEIS CSS (Para Manutenção Fácil)
+   ========================================= */
+:root {
+    /* Cores Principais */
+    --primary-purple: #6f42c1;
+    --secondary-gold: #DAA520;
+    --bootstrap-warning: #ffc107;
+    --bootstrap-orange: #fd7e14;
+
+    /* Cores de Fundo */
+    --body-bg: #f8f9fa;
+    --section-bg-start: #fdfbfb;
+    --section-bg-end: #ebedee;
+}
+
+/* =========================================
    1. FONTES E ESTRUTURA GERAL
    ========================================= */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--body-bg);
     color: #333;
 }
 
@@ -18,14 +34,14 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* Fundo Moderno para as Seções (Degradê Suave) */
 .section-gradient {
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); 
+    background: linear-gradient(135deg, var(--section-bg-start) 0%, var(--section-bg-end) 100%); 
 }
 
 /* Divisória Dourada entre Seções */
 .golden-divider {
     border: 0;
     height: 6px;
-    background: #ffc107;
+    background: var(--bootstrap-warning);
     opacity: 1;
     margin: 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -34,8 +50,15 @@ h1, h2, h3, h4, h5, .navbar-brand {
 /* =========================================
    2. NAVBAR (MODERNA)
    ========================================= */
+   
+.logo-navbar {
+    height: 35px; 
+    width: auto; 
+    vertical-align: middle; 
+}
+
 .navbar {
-    border-bottom: 3px solid #ffc107; /* Detalhe amarelo */
+    border-bottom: 3px solid var(--bootstrap-warning); /* Detalhe amarelo */
 }
 
 /* Links do Menu */
@@ -58,9 +81,9 @@ h1, h2, h3, h4, h5, .navbar-brand {
     position: absolute;
     width: 0;
     height: 3px;
-    bottom: 5px;
+    bottom: 5px; /* Distância do fundo do link */
     left: 50%;
-    background-color: #ffc107;
+    background-color: var(--bootstrap-warning);
     transition: all 0.3s ease-in-out;
     transform: translateX(-50%);
 }
@@ -246,6 +269,75 @@ h1, h2, h3, h4, h5, .navbar-brand {
    5. FORMULÁRIO MODERNO E ATRAENTE
    ========================================= */
 
+
+   /* =========================================
+   B. TEMA DOURADO (Para o Formulário)
+   ========================================= */
+
+/* Fundo Dourado Suave para o Card */
+.card-gold {
+    background-color: #fff !important; /* Fundo branco/claro */
+    border-top: 5px solid var(--bootstrap-warning) !important; /* Borda superior Dourada */
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2) !important; /* Sombra suave dourada */
+}
+
+/* Inputs Dourados (Soft) */
+.form-control-gold {
+    background-color: #fcfcfc; 
+    border: 1px solid #e9ecef;
+    border-radius: 0.8rem;
+    padding: 1rem 0.75rem;
+    transition: all 0.3s ease;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Estado de Foco (Dourado) */
+.form-control-gold:focus {
+    background-color: #ffffff;
+    border-color: var(--bootstrap-warning); /* Borda Dourada */
+    box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.3); /* Ring Dourado */
+    outline: none;
+}
+
+/* Quando focado, o label flutuante muda para Dourado */
+.form-floating > .form-control-gold:focus ~ label {
+    color: var(--bootstrap-warning);
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+/* Estilo da Lista de Feedbacks */
+#feedbackList .list-group-item {
+    background-color: #f8f9fa; /* Fundo levemente cinza */
+    border-left: 3px solid var(--bootstrap-warning); /* Detalhe lateral dourado */
+    border-color: #e9ecef;
+    color: #333;
+}
+
+/* --- Radio Buttons (Tags Selecionáveis) no tema dourado --- */
+.btn-tag-gold {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #555;
+}
+
+.btn-tag-gold:hover {
+    background-color: #fff3cd; /* Amarelo claro suave */
+    border-color: var(--bootstrap-warning);
+}
+
+/* Quando checado, o Dourado é ativado */
+.btn-check:checked + .btn-tag-gold {
+    background-color: var(--bootstrap-warning);
+    color: #333; /* Texto escuro no fundo dourado */
+    border-color: var(--bootstrap-warning);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4);
+    transform: translateY(-2px);
+}
+
+
+
 /* Inputs com visual moderno */
 .form-control-soft {
     background-color: #f1f3f5;
@@ -260,7 +352,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 /* Estado de Foco */
 .form-control-soft:focus {
     background-color: #ffffff;
-    border-color: #6f42c1;
+    border-color: var(--primary-purple);
     box-shadow: 0 0 0 4px rgba(111, 66, 193, 0.15);
     outline: none;
 }
@@ -274,7 +366,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* Quando focado, label fica roxo */
 .form-floating > .form-control:focus ~ label {
-    color: #6f42c1;
+    color: var(--primary-purple);
     font-weight: bold;
     opacity: 0.8;
 }
@@ -282,13 +374,15 @@ h1, h2, h3, h4, h5, .navbar-brand {
 /* Textarea altura mínima */
 textarea.form-control-soft {
     min-height: 120px;
+    /* DICA: Permite redimensionar verticalmente, mas não horizontalmente */
+    resize: vertical; 
 }
 
 /* --- Radio Buttons (Tags Selecionáveis) --- */
 .btn-check:checked + .btn-tag {
-    background-color: #6f42c1;
+    background-color: var(--primary-purple);
     color: #fff;
-    border-color: #6f42c1;
+    border-color: var(--primary-purple);
     box-shadow: 0 4px 10px rgba(111, 66, 193, 0.3);
     transform: translateY(-2px);
 }
@@ -311,7 +405,7 @@ textarea.form-control-soft {
 
 /* --- Botão de Enviar Gradiente --- */
 .btn-gradient-primary {
-    background: linear-gradient(45deg, #6f42c1, #fd7e14);
+    background: linear-gradient(45deg, var(--primary-purple), var(--bootstrap-orange));
     border: none;
     color: white;
     font-weight: bold;
@@ -334,32 +428,32 @@ textarea.form-control-soft {
 
 /* Botão Roxo para a ODS 10 */
 .btn-outline-purple {
-    color: #6f42c1;
-    border-color: #6f42c1;
+    color: var(--primary-purple);
+    border-color: var(--primary-purple);
 }
 
 .btn-outline-purple:hover {
-    background-color: #6f42c1;
+    background-color: var(--primary-purple);
     color: white;
-    border-color: #6f42c1;
+    border-color: var(--primary-purple);
 }
 
 /* --- Roxo / Lilás --- */
-.bg-purple { background-color: #6f42c1 !important; }
-.text-purple { color: #6f42c1 !important; }
+.bg-purple { background-color: var(--primary-purple) !important; }
+.text-purple { color: var(--primary-purple) !important; }
 .bg-purple-soft { background-color: rgba(111, 66, 193, 0.1); }
-.border-top-purple { border-top: 4px solid #6f42c1 !important; }
+.border-top-purple { border-top: 4px solid var(--primary-purple) !important; }
 
 /* --- Dourado --- */
-.bg-gold { background-color: #DAA520 !important; }
-.text-gold { color: #DAA520 !important; }
+.bg-gold { background-color: var(--secondary-gold) !important; }
+.text-gold { color: var(--secondary-gold) !important; }
 .bg-gold-soft { background-color: rgba(218, 165, 32, 0.1); }
-.border-top-gold { border-top: 4px solid #DAA520 !important; }
+.border-top-gold { border-top: 4px solid var(--secondary-gold) !important; }
 
 /* --- Laranja --- */
-.text-orange { color: #fd7e14 !important; }
+.text-orange { color: var(--bootstrap-orange) !important; }
 .bg-orange-soft { background-color: rgba(253, 126, 20, 0.1); }
-.border-top-orange { border-top: 4px solid #fd7e14 !important; }
+.border-top-orange { border-top: 4px solid var(--bootstrap-orange) !important; }
 
 /* --- Verde --- */
 .bg-green-soft { background-color: rgba(144, 238, 144, 0.2); } /* Verde claro */
@@ -368,9 +462,9 @@ textarea.form-control-soft {
 .border-top-success { border-top: 4px solid #198754 !important; }
 .border-top-primary { border-top: 4px solid #0d6efd !important; }
 
-/* --- Amarelo --- */
+/* --- Amarelo (Bootstrap Warning) --- */
 .bg-warning-soft { background-color: rgba(255, 193, 7, 0.1); }
-.border-top-warning { border-top: 4px solid #ffc107 !important; }
+.border-top-warning { border-top: 4px solid var(--bootstrap-warning) !important; }
 
 /* --- Branco/Cinza --- */
 .bg-gray-soft { background-color: rgba(108, 117, 125, 0.1); }
@@ -391,7 +485,7 @@ textarea.form-control-soft {
    ========================================= */
 .footer-modern {
     background-color: #e9ecef;
-    border-top: 5px solid #ffc107; 
+    border-top: 5px solid var(--bootstrap-warning); 
     color: #333;
 }
 
@@ -400,15 +494,15 @@ textarea.form-control-soft {
 }
 
 .footer-modern a.hover-link:hover {
-    color: #6f42c1 !important;
+    color: var(--primary-purple) !important;
 }
 
 .social-icon {
     transition: transform 0.3s ease, color 0.3s ease;
-    color: #6f42c1;
+    color: var(--primary-purple);
 }
 
 .social-icon:hover {
-    color: #DAA520 !important;
+    color: var(--secondary-gold) !important;
     transform: scale(1.15);
 }

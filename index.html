@@ -15,13 +15,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand fw-bold text-uppercase" href="#">
+            <img 
+                src="img/faviiii.png" 
+                alt="Cores do Bem Logo" 
+                class="logo-navbar me-2" 
+            >
             <span class="text-warning">Cores</span> do Bem
         </a>
-
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
-            
-        </button>
+        </button> 
+        
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
@@ -147,7 +151,7 @@
                 </p>
             </div>
             <div class="col-md-6 text-center">
-                <img src="img/logo.jpg" alt="Logo do site" class="img-fluid w-50 rounded-circle">
+                <img src="img/logo.png" alt="Logo do site" class="img-fluid w-50 rounded-circle">
             </div>
         </div>
     </section>
@@ -409,73 +413,86 @@
 
 <section id="contato" class="py-5 section-gradient">
     <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card card-modern p-4 p-md-5 border-0">
-                    
-                    <div class="text-center mb-5">
-                        <span class="badge bg-warning text-dark mb-2">Fale Conosco</span>
-                        <h2 class="fw-bold display-6">Sua opinião importa</h2>
-                        <p class="text-muted">Queremos saber o que você achou da nossa campanha.</p>
+        <div class="row justify-content-center"> 
+            
+            <div class="col-lg-10 text-center mb-5">
+                <span class="badge bg-warning text-dark mb-2">Fale Conosco</span>
+                <h2 class="fw-bold display-6">Sua opinião importa</h2>
+                <p class="text-muted">Queremos saber o que você achou da nossa campanha.</p>
+            </div>
+            
+            <div class="row justify-content-center g-4">
+                
+                <div class="col-lg-6"> 
+                    <div class="card card-modern card-gold p-4 p-md-5 border-0">
+                        <form id="feedbackForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-control-gold" id="nome" placeholder="Seu nome" required>
+                                        <label for="nome"><i class="bi bi-person me-2"></i>Seu Nome</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control form-control-gold" id="email" placeholder="nome@exemplo.com" required>
+                                        <label for="email"><i class="bi bi-envelope me-2"></i>Seu E-mail</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-4">
+                                <label class="form-label fw-bold d-block mb-3 text-secondary">Qual mês você mais gostou?</label>
+                                <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                                    <input type="radio" class="btn-check" name="mesFavorito" id="jul" value="Julho" autocomplete="off">
+                                    <label class="btn-tag btn-tag-gold" for="jul"> Julho</label> <input type="radio" class="btn-check" name="mesFavorito" id="ago" value="Agosto" autocomplete="off">
+                                    <label class="btn-tag btn-tag-gold" for="ago"> Agosto</label> <input type="radio" class="btn-check" name="mesFavorito" id="set" value="Setembro" autocomplete="off">
+                                    <label class="btn-tag btn-tag-gold" for="set"> Setembro</label> </div>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <select class="form-select form-control-gold" id="mesSugerido" aria-label="Seleção de mês">
+                                    <option selected disabled value="">Clique para selecionar...</option>
+                                    <option value="Janeiro"> Janeiro Branco</option>
+                                    <option value="Outubro"> Outubro Rosa</option>
+                                    <option value="Novembro"> Novembro Azul</option>
+                                </select>
+                                <label for="mesSugerido"><i class="bi bi-calendar-event me-2"></i>Que outro mês gostaria de ver?</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <textarea class="form-control form-control-gold" placeholder="Deixe seu comentário" id="comentario"></textarea>
+                                <label for="comentario"><i class="bi bi-chat-dots me-2"></i>Escreva sua mensagem aqui...</label>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-gradient-primary btn-lg ">
+                                    Enviar Feedback <i class="bi bi-send-fill ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                    <form id="feedbackForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control form-control-soft" id="nome" placeholder="Seu nome" required>
-                                    <label for="nome"><i class="bi bi-person me-2"></i>Seu Nome</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control form-control-soft" id="email" placeholder="nome@exemplo.com" required>
-                                    <label for="email"><i class="bi bi-envelope me-2"></i>Seu E-mail</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="my-4">
-                            <label class="form-label fw-bold d-block mb-3 text-secondary">Qual mês você mais gostou?</label>
-                            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
-                                <input type="radio" class="btn-check" name="mesFavorito" id="jul" value="Julho" autocomplete="off">
-                                <label class="btn-tag" for="jul"> Julho</label>
-
-                                <input type="radio" class="btn-check" name="mesFavorito" id="ago" value="Agosto" autocomplete="off">
-                                <label class="btn-tag" for="ago"> Agosto</label>
-
-                                <input type="radio" class="btn-check" name="mesFavorito" id="set" value="Setembro" autocomplete="off">
-                                <label class="btn-tag" for="set"> Setembro</label>
-                            </div>
-                        </div>
-
-                        <div class="form-floating mb-4">
-                            <select class="form-select form-control-soft" id="mesSugerido" aria-label="Seleção de mês">
-                                <option selected disabled value="">Clique para selecionar...</option>
-                                <option value="Janeiro"> Janeiro Branco</option>
-                                <option value="Outubro"> Outubro Rosa</option>
-                                <option value="Novembro"> Novembro Azul</option>
-                            </select>
-                            <label for="mesSugerido"><i class="bi bi-calendar-event me-2"></i>Que outro mês gostaria de ver?</label>
-                        </div>
-
-                        <div class="form-floating mb-4">
-                            <textarea class="form-control form-control-soft" placeholder="Deixe seu comentário" id="comentario"></textarea>
-                            <label for="comentario"><i class="bi bi-chat-dots me-2"></i>Escreva sua mensagem aqui...</label>
-                        </div>
-
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-gradient-primary btn-lg ">
-                                Enviar Feedback <i class="bi bi-send-fill ms-2"></i>
-                            </button>
-                        </div>
-
-                    </form>
                 </div>
+
+                <div class="col-lg-6"> 
+                    <div class="card card-modern card-gold p-4 p-md-5 border-0">
+                        <h4 class="fw-bold mb-3">Feedbacks Salvos (Local)</h4>
+                        <p class="text-muted small">Os dados são carregados do LocalStorage.</p>
+                        
+                        <div id="feedbackList" class="list-group">
+                            <p class="text-center text-secondary m-3">Nenhum feedback salvo localmente ainda.</p>
+                        </div>
+                        
+                        <button id="limparFeedbacks" class="btn btn-outline-danger btn-sm mt-3" style="display: none;">Limpar Dados Salvos</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
+
+
 
 <footer class="footer-modern py-5 mt-5">
     <div class="container">
@@ -493,7 +510,7 @@
                 <p class="fw-bold mb-2 text-dark">Navegação Rápida</p>
                 <div class="d-flex justify-content-center gap-3 flex-wrap small">
                     <a href="#home" class="text-muted text-decoration-none hover-link">Início</a>
-                    <a href="#agosto" class="text-muted text-decoration-none hover-link">Por que cores ?</a>
+                    <a href="#sobre" class="text-muted text-decoration-none hover-link">Por que cores ?</a>
                     <a href="#julho" class="text-muted text-decoration-none hover-link">Julho</a>
                     <a href="#agosto" class="text-muted text-decoration-none hover-link">Agosto</a>
                     <a href="#setembro" class="text-muted text-decoration-none hover-link">Setembro</a>
@@ -508,9 +525,10 @@
             <div class="col-md-4 text-center text-md-end">
                 <p class="fw-bold mb-2 text-dark">Siga-nos</p>
                 <div class="social-icons d-flex justify-content-center justify-content-md-end gap-3">
-                    <a href="#" class="social-icon text-purple"><i class="bi bi-instagram fs-4"></i></a>
-                    <a href="#" class="social-icon text-purple"><i class="bi bi-facebook fs-4"></i></a>
-                    <a href="#" class="social-icon text-purple"><i class="bi bi-twitter fs-4"></i></a>
+                  <a href="https://www.linkedin.com/in/jorglucas-11588a395e-/" class="social-icon text-purple"><i class="bi bi-linkedin fs-4"></i></a>
+<a href="https://www.linkedin.com/in/jhonatan-carlos-a2ab72308/" class="social-icon text-purple"><i class="bi bi-linkedin fs-4"></i></a>
+<a href="#" class="social-icon text-purple"><i class="bi bi-linkedin fs-4"></i></a>
+<a href="#" class="social-icon text-purple"><i class="bi bi-linkedin fs-4"></i></a>
                 </div>
             </div>
         </div>
